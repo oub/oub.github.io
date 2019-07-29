@@ -4,6 +4,7 @@
     node.innerHTML = node.innerHTML + text + '<br/>';
   };
   const init = () => {
+    log('starting...');
     navigator.bluetooth
       .requestDevice({
         filters: [
