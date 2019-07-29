@@ -1,7 +1,7 @@
 (() => {
   const log = text => {
     const node = document.getElementById('log');
-    node.innerHTML = `${node.innerHTML}<br/>&gt;${text}`;
+    node.innerHTML = `${node.innerHTML}<li>&gt;${text}</li>`;
   };
   const init = () => {
     log('starting...');
