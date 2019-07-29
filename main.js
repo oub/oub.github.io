@@ -1,26 +1,32 @@
 (() => {
   const log = text => {
     const node = document.getElementById('log');
-    node.innerHTML = `${node.innerHTML}<li>&gt;${text}</li>`;
+    node.innerHTML = `${node.innerHTML}<li>${text}</li>`;
   };
-  const init = () => {
+  const startBlueTooth = () => {
     log('starting...');
+    let options = {};
+    options.acceptAllDevices = true;
+
     navigator.bluetooth
-      .requestDevice({
-        filters: [
-          {
-            name: 'POSFAB04'
-          }
-        ]
-        //optionalServices: ['battery_service']
-      })
+      .requestDevice(options)
+      // filters: [
+      //   {
+      //     name: 'POSFAB04'
+      //   }
+      // ]
+      //optionalServices: ['battery_service']
       .then(device => {
         log(`^-^ ${device}`);
         /* ... */
       })
       .catch(error => {
-        log(`[ERROR] ${error}`);
+        log(`${error}`);
       });
+  };
+  const init = () => {
+    log('init...');
+    document.getElementById('starter').onclick = startBlueTooth;
   };
 
   init();
