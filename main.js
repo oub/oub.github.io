@@ -6,16 +6,16 @@
   const startBlueTooth = () => {
     log('starting...');
     let options = {};
-    options.acceptAllDevices = true;
+    //options.acceptAllDevices = true;
+    options.filters = [
+      {
+        name: 'POSFAB04'
+      }
+    ];
+    //optionalServices: ['battery_service']
 
     navigator.bluetooth
       .requestDevice(options)
-      // filters: [
-      //   {
-      //     name: 'POSFAB04'
-      //   }
-      // ]
-      //optionalServices: ['battery_service']
       .then(device => {
         log(`^-^ ${device}`);
         /* ... */
