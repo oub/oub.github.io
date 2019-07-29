@@ -1,7 +1,7 @@
 (() => {
   const log = text => {
     const node = document.getElementById('log');
-    node.innerHTML = node.innerHTML + text + '<br/>';
+    node.innerHTML = `${node.innerHTML}<br/>&gt;${text}`;
   };
   const init = () => {
     log('starting...');
@@ -15,11 +15,11 @@
         //optionalServices: ['battery_service']
       })
       .then(device => {
-        log(device);
+        log(`^-^ ${device}`);
         /* ... */
       })
       .catch(error => {
-        log(error);
+        log(`[ERROR] ${error}`);
       });
   };
 
